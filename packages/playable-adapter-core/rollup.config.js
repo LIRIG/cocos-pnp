@@ -1,5 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
+import {
+  nodeResolve
+} from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
 import isBuiltin from 'is-builtin-module';
 import replace from '@rollup/plugin-replace'
@@ -7,15 +9,18 @@ import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import alias from '@rollup/plugin-alias'
 import dts from 'rollup-plugin-dts'
-import { minify } from 'uglify-js'
-import { readFileSync } from 'fs'
+import {
+  minify
+} from 'uglify-js'
+import {
+  readFileSync
+} from 'fs'
 
 const getJSCode = (jsPath) => {
   return JSON.stringify(minify(readFileSync(__dirname + jsPath).toString('utf-8')).code)
 }
 
-export default [
-  {
+export default [{
     input: 'src/index.ts',
     output: {
       file: `dist/playable-adapter-core.js`,
@@ -32,9 +37,10 @@ export default [
       }),
       terser(),
       alias({
-        entries: [
-          { find: '@', replacement: __dirname + '/src' }
-        ]
+        entries: [{
+          find: '@',
+          replacement: __dirname + '/src'
+        }]
       }),
       replace({
         preventAssignment: true,
@@ -45,7 +51,7 @@ export default [
           __adapter_main_3x_code__: () => getJSCode('/injects/3x/main.js'),
           __adapter_jszip_code__: () => getJSCode('/injects/libs/pako.js'),
         }
-      }),
+      })
     ],
     external: ['fs', 'path']
   },
@@ -56,9 +62,10 @@ export default [
     },
     plugins: [
       alias({
-        entries: [
-          { find: '@', replacement: __dirname + '/src' }
-        ]
+        entries: [{
+          find: '@',
+          replacement: __dirname + '/src'
+        }]
       }),
       dts()
     ],

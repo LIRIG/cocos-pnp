@@ -15,6 +15,9 @@ import {
   export3xRubeex,
   export3xTiktok,
   export3xUnity,
+  export3xKwai,
+  export3xBigo,
+  export3xChartboost,
 } from '@/channels'
 
 const channelExports: { [key in TChannel]: (options: TChannelPkgOptions) => Promise<void> } = {
@@ -29,6 +32,9 @@ const channelExports: { [key in TChannel]: (options: TChannelPkgOptions) => Prom
   Rubeex: export3xRubeex,
   Tiktok: export3xTiktok,
   Unity: export3xUnity,
+  Kwai: export3xKwai,
+  Bigo: export3xBigo,
+  Chartboost: export3xChartboost,
 }
 
 export const genChannelsPkg = (options: TChannelPkgOptions, mode?: TMode): Promise<void> => {

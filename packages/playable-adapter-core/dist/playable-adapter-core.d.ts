@@ -44,6 +44,9 @@ type TChannel =
   | 'Rubeex'
   | 'Tiktok'
   | 'Unity'
+  | 'Kwai'
+  | 'Bigo'
+  | 'Chartboost'
 
 type TChannelRC = {
   head: string

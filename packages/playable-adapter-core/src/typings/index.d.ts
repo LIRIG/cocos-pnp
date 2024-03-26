@@ -70,6 +70,9 @@ export type TChannel =
   | 'Rubeex'
   | 'Tiktok'
   | 'Unity'
+  | 'Kwai'
+  | 'Bigo'
+  | 'Chartboost'
 
 export type TChannelRC = {
   head: string

@@ -5,6 +5,7 @@
   "title": "Playable Adapter Core",
   "main": "dist/playable-adapter-core.js",
   "typings": "dist/playable-adapter-core.d.ts",
+  "type": "module",
   "files": [
     "dist"
   ],
@@ -20,7 +21,7 @@
   "scripts": {
     "clear": "rm -rf dist/",
     "watch": "rollup -c -w",
-    "build": "rollup -c"
+    "build": "rollup -c "
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^4.0.2",
@@ -44,5 +45,6 @@
     "cheerio": "1.0.0-rc.12",
     "mime-types": "^2.1.35",
     "pako": "^2.1.0"
-  }
+  },
+  "license": "ISC"
 }
